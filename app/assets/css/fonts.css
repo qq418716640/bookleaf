@@ -1,0 +1,44 @@
+/* Crimson Text - SemiBold Normal */
+@font-face {
+  font-family: 'Crimson Text';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/CrimsonText-SemiBold.ttf') format('truetype');
+}
+
+/* Crimson Text - SemiBold Italic */
+@font-face {
+  font-family: 'Crimson Text';
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/CrimsonText-SemiBoldItalic.ttf') format('truetype');
+}
+
+/* Averia Serif Libre - Bold Normal */
+@font-face {
+  font-family: 'Averia Serif Libre';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/AveriaSerifLibre-Bold.ttf') format('truetype');
+}
+
+/* Averia Serif Libre - Bold Italic */
+@font-face {
+  font-family: 'Averia Serif Libre';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url('/fonts/AveriaSerifLibre-BoldItalic.ttf') format('truetype');
+}
+
+/* EB Garamond - Regular */
+@font-face {
+  font-family: 'EB Garamond';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/EBGaramond-Regular.ttf') format('truetype');
+}
