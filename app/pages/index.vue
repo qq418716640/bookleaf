@@ -351,14 +351,13 @@ onMounted(() => {
               <h1
                 id="app-title"
                 class="text-80 font-serif text-#484c44 lt-md:text-40"
+                style="line-height: 100%;"
               >
                 Bookleaf
               </h1>
-              <h2 class="text-40 font-serif text-#484c44 lt-md:text-24">For the lines you'll remember.</h2>
-              <p class="text-#7c7d7c text-20 leading-relaxed lt-md:text-14">
-                A quiet collection of words worth remembering —
-                turn excerpts, mottos, and lines from books into clean, editorial-style visuals.
-                Free to use. No signup required. Export as JPG.
+              <h2 class="text-40 font-serif text-#484c44 lt-md:text-24 mt-8" style="line-height: 100%;">For the lines you'll remember.</h2>
+              <p class="text-#7c7d7c text-22 mt-60 lt-md:text-14" style="line-height: 150%;">
+                A quiet collection of words worth remembering — turn excerpts, mottos, and lines from books into clean, editorial-style visuals. Free to use. No signup required. Export as JPG.
               </p>
               <div class="flex gap-20 mt-20" lt-md="w-100% items-center gap-10 justify-center">
               <a 
@@ -396,10 +395,10 @@ onMounted(() => {
         <div class="max-w-7xl mx-auto box-border flex flex-col gap-80" lt-md="px-20 gap-40">
 
           <!-- Random Excerpt Demo -->
-          <section class="my-40 py-30 px-20 bg-#fffcf6 backdrop-blur-sm rounded-2xl shadow-soft flex items-center justify-between" lt-md="flex-col gap-y-4">
+          <section class="my-40 py-20 px-24 bg-#fffcf6 backdrop-blur-sm rounded-2xl shadow-soft flex items-center justify-between" lt-md="flex-col gap-y-4">
             <div v-if="currentExcerpt" class="flex items-center gap-20" lt-md="flex-col gap-y-0">
-              <p class="text-14 text-#4c4c48 font-600" style="font-family: 'Crimson Text', serif;">{{ currentExcerpt.text }}</p>
-              <p class="text-14 text-#4c4c48 font-600 italic" style="font-family: 'Crimson Text', serif;">— {{ currentExcerpt.author }}</p>
+              <p class="text-12 text-#4c4c48 font-600" style="font-family: 'Crimson Text', serif; line-height: 150%;">{{ currentExcerpt.text }}</p>
+              <p class="text-12 text-#4c4c48 font-600 italic" style="font-family: 'Crimson Text', serif; line-height: 150%;">— {{ currentExcerpt.author }}</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-16 justify-center">
               <button
