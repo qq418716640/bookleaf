@@ -18,7 +18,7 @@ export const PRESETS: PresetConfig[] = [
   {
     id: 'editorial',
     name: 'Editorial',
-    thumbnailUrl: 'images/preview/Editorial-1350.jpg',
+    thumbnailUrl: 'images/preview/Style-Editorial.png',
     backgroundUrl: 'images/底纹/Editorial-bg-1350.jpg',
     filterUrl: 'images/滤镜/Editorial-filter-Multiply-1350.jpg',
     defaultFilterOpacity: 50,
@@ -44,7 +44,7 @@ export const PRESETS: PresetConfig[] = [
   {
     id: 'classic',
     name: 'Classic',
-    thumbnailUrl: 'images/preview/Classic-1350.jpg',
+    thumbnailUrl: 'images/preview/Style-Classic.png',
     backgroundUrl: 'images/底纹/Classic-bg-1350.jpg',
     filterUrl: 'images/滤镜/Classic-filter-Multiply-1350.jpg',
     defaultFilterOpacity: 50,
@@ -70,7 +70,7 @@ export const PRESETS: PresetConfig[] = [
   {
     id: 'modern',
     name: 'Modern',
-    thumbnailUrl: 'images/preview/Modern-1350.jpg',
+    thumbnailUrl: 'images/preview/Style-Modern.png',
     backgroundUrl: 'images/底纹/Modern-bg-1350.jpg',
     filterUrl: 'images/滤镜/Modern-filter-Multiply-1350.jpg',
     defaultFilterOpacity: 50,

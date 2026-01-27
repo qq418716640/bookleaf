@@ -1,12 +1,18 @@
 <script setup lang="ts">
-import type { TextAlignment, AspectRatio } from '~/types'
+import type { TextAlignment, AspectRatio, PresetConfig } from '~/types'
 import useAnalytics from '~/composables/useAnalytics'
+
+// Get base URL for static assets
+const config = useRuntimeConfig()
+const baseUrl = config.app.baseURL || '/'
 
 interface Props {
   filterIntensity: number
   quoteAlignment: TextAlignment
   authorAlignment: TextAlignment
   aspectRatio: AspectRatio
+  presets: PresetConfig[]
+  currentPresetId?: string
 }
 
 interface Emits {
@@ -14,6 +20,7 @@ interface Emits {
   (e: 'update:quoteAlignment', value: TextAlignment): void
   (e: 'update:authorAlignment', value: TextAlignment): void
   (e: 'update:aspectRatio', value: AspectRatio): void
+  (e: 'selectPreset', presetId: string): void
 }
 
 const props = defineProps<Props>()
@@ -52,11 +59,16 @@ const handleAspectRatioChange = (value: AspectRatio) => {
   emit('update:aspectRatio', value)
   analytics.trackRatioSelected(value)
 }
+
+const handleSelectPreset = (preset: PresetConfig) => {
+  emit('selectPreset', preset.id)
+  analytics.trackPresetSelected(preset.id)
+}
 </script>
 
 <template>
   <div class="flex flex-col gap-16">
-    <!-- Filter Intensity Slider -->
+    <!-- Style Intensity Slider -->
     <div class="flex flex-col gap-12">
       <div class="flex items-center justify-between">
         <label
@@ -84,6 +96,40 @@ const handleAspectRatioChange = (value: AspectRatio) => {
       >
         Adjust the filter overlay intensity
       </p>
+    </div>
+
+    <!-- Style Switcher -->
+    <div class="flex flex-col gap-12">
+      <label
+        class="text-14 font-700 color-#484c44"
+      >
+        Style
+      </label>
+      <div class="grid grid-cols-3 gap-12">
+        <button
+          v-for="preset in presets"
+          :key="preset.id"
+          type="button"
+          class="flex flex-col items-center gap-8 p-8 rounded-8 transition-all-300 cursor-pointer"
+          :class="[
+            currentPresetId === preset.id
+              ? 'bg-#928B86 color-#fff'
+              : 'bg-white border border-gray-200 hover:bg-#928B86 hover:color-#fff'
+          ]"
+          @click="handleSelectPreset(preset)"
+        >
+          <!-- Preview Image -->
+          <div class="w-full aspect-[4/3] bg-gray-100 rounded-4 overflow-hidden">
+            <img
+              :src="`${baseUrl}${preset.thumbnailUrl}`"
+              :alt="`${preset.name} style preview`"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Style Name -->
+          <span class="text-12 font-600 text-center">{{ preset.name }}</span>
+        </button>
+      </div>
     </div>
 
     <!-- Quote Alignment -->
@@ -164,6 +210,22 @@ const handleAspectRatioChange = (value: AspectRatio) => {
 </template>
 
 <style>
+/* Custom select dropdown with proper spacing */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23484c44' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 36px !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 .slider-base {
   -webkit-appearance: none;
   appearance: none;

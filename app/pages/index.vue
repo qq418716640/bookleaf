@@ -463,11 +463,8 @@ onMounted(() => {
                 <TextInput
                   :quote-text="quoteText"
                   :author-text="authorText"
-                  :presets="presets"
-                  :current-preset-id="currentPreset?.id"
                   @update:quote-text="setQuoteText"
                   @update:author-text="setAuthorText"
-                  @select-preset="selectPreset"
                 />
 
                 <div class="flex items-center gap-12">
@@ -483,10 +480,13 @@ onMounted(() => {
                   :quote-alignment="quoteAlignment"
                   :author-alignment="authorAlignment"
                   :aspect-ratio="aspectRatio"
+                  :presets="presets"
+                  :current-preset-id="currentPreset?.id"
                   @update:filter-intensity="setFilterIntensity"
                   @update:quote-alignment="setQuoteAlignment"
                   @update:author-alignment="setAuthorAlignment"
                   @update:aspect-ratio="setAspectRatio"
+                  @select-preset="selectPreset"
                 />
               </div>
 

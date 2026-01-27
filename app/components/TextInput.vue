@@ -10,21 +10,16 @@ interface Props {
   authorText: string
   quotePlaceholder?: string
   authorPlaceholder?: string
-  presets?: PresetConfig[]
-  currentPresetId?: string
 }
 
 interface Emits {
   (e: 'update:quoteText', value: string): void
   (e: 'update:authorText', value: string): void
-  (e: 'selectPreset', preset: PresetConfig): void
 }
 
 const props = withDefaults(defineProps<Props>(), {
   quotePlaceholder: 'Enter your quote here...',
   authorPlaceholder: 'Author name',
-  presets: () => [],
-  currentPresetId: '',
 })
 
 const emit = defineEmits<Emits>()
@@ -37,10 +32,6 @@ const handleQuoteInput = (event: Event) => {
 const handleAuthorInput = (event: Event) => {
   const target = event.target as HTMLInputElement
   emit('update:authorText', target.value)
-}
-
-const handleSelectPreset = (preset: PresetConfig) => {
-  emit('selectPreset', preset)
 }
 </script>
 
@@ -94,40 +85,6 @@ const handleSelectPreset = (preset: PresetConfig) => {
       >
         Optional: Add the author's name
       </p>
-    </div>
-
-    <!-- Style Switcher -->
-    <div class="flex flex-col gap-12">
-      <label
-        class="text-14 font-700 color-#484c44"
-      >
-        Style
-      </label>
-      <div class="grid grid-cols-3 gap-12">
-        <button
-          v-for="preset in presets"
-          :key="preset.id"
-          type="button"
-          class="flex flex-col items-center gap-8 p-8 rounded-8 transition-all-300 cursor-pointer"
-          :class="[
-            currentPresetId === preset.id
-              ? 'bg-#928B86 color-#fff'
-              : 'bg-white border border-gray-200 hover:bg-#928B86 hover:color-#fff'
-          ]"
-          @click="handleSelectPreset(preset)"
-        >
-          <!-- Preview Image -->
-          <div class="w-full aspect-[4/3] bg-gray-100 rounded-4 overflow-hidden">
-            <img
-              :src="`${baseUrl}images/preview/${preset.name}-1350.jpg`"
-              :alt="`${preset.name} style preview`"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <!-- Style Name -->
-          <span class="text-12 font-600 text-center">{{ preset.name }}</span>
-        </button>
-      </div>
     </div>
   </div>
 </template>
