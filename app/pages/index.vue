@@ -351,12 +351,12 @@ onMounted(() => {
               <h1
                 id="app-title"
                 class="text-80 font-serif text-#484c44 lt-md:text-40"
-                style="line-height: 100%;"
+                style="line-height: 120%;"
               >
                 Bookleaf
               </h1>
-              <h2 class="text-40 font-serif text-#484c44 lt-md:text-24 mt-8" style="line-height: 100%;">For the lines you'll remember.</h2>
-              <p class="text-#7c7d7c text-22 mt-60 lt-md:text-14" style="line-height: 150%;">
+              <h2 class="text-40 font-serif text-#484c44 lt-md:text-24 mt-0" style="line-height: 120%;">For the lines you'll remember.</h2>
+              <p class="text-#7c7d7c text-16 mt-24 lt-md:text-14" style="line-height: 170%;">
                 A quiet collection of words worth remembering — turn excerpts, mottos, and lines from books into clean, editorial-style visuals. Free to use. No signup required. Export as JPG.
               </p>
               <div class="flex gap-20 mt-20" lt-md="w-100% items-center gap-10 justify-center">
