@@ -68,36 +68,6 @@ const handleSelectPreset = (preset: PresetConfig) => {
 
 <template>
   <div class="flex flex-col gap-16">
-    <!-- Style Intensity Slider -->
-    <div class="flex flex-col gap-12">
-      <div class="flex items-center justify-between">
-        <label
-          for="filter-intensity"
-          class="text-14 font-700 color-#484c44"
-        >
-          Style Intensity
-        </label>
-        <span class="text-sm text-gray-500">{{ filterIntensity }}%</span>
-      </div>
-      <input
-        id="filter-intensity"
-        type="range"
-        :value="filterIntensity"
-        min="0"
-        max="100"
-        step="1"
-        class="slider-base w-full"
-        aria-describedby="intensity-hint"
-        @input="handleIntensityChange"
-      />
-      <p
-        id="intensity-hint"
-        class="text-xs text-gray-500"
-      >
-        Adjust the filter overlay intensity
-      </p>
-    </div>
-
     <!-- Style Switcher -->
     <div class="flex flex-col gap-12">
       <label
@@ -130,6 +100,36 @@ const handleSelectPreset = (preset: PresetConfig) => {
           <span class="text-12 font-600 text-center">{{ preset.name }}</span>
         </button>
       </div>
+    </div>
+
+    <!-- Style Intensity Slider -->
+    <div class="flex flex-col gap-12">
+      <div class="flex items-center justify-between">
+        <label
+          for="filter-intensity"
+          class="text-14 font-700 color-#484c44"
+        >
+          Style Intensity
+        </label>
+        <span class="text-sm text-gray-500">{{ filterIntensity }}%</span>
+      </div>
+      <input
+        id="filter-intensity"
+        type="range"
+        :value="filterIntensity"
+        min="0"
+        max="100"
+        step="1"
+        class="slider-base w-full"
+        aria-describedby="intensity-hint"
+        @input="handleIntensityChange"
+      />
+      <p
+        id="intensity-hint"
+        class="text-xs text-gray-500"
+      >
+        Adjust the filter overlay intensity
+      </p>
     </div>
 
     <!-- Quote Alignment -->
