@@ -395,10 +395,10 @@ onMounted(() => {
         <div class="max-w-7xl mx-auto box-border flex flex-col gap-80" lt-md="px-20 gap-40">
 
           <!-- Random Excerpt Demo -->
-          <section class="my-40 py-20 px-24 bg-#fffcf6 backdrop-blur-sm rounded-2xl shadow-soft flex items-center justify-between" lt-md="flex-col gap-y-4">
+          <section class="my-40 py-24 px-40 bg-#fffcf6 backdrop-blur-sm rounded-4 flex items-center justify-between" lt-md="flex-col gap-y-4" style="box-shadow: 0 4px 4px rgba(94, 85, 77, 0.16);">
             <div v-if="currentExcerpt" class="flex items-center gap-20" lt-md="flex-col gap-y-0">
-              <p class="text-12 text-#4c4c48 font-600" style="font-family: 'Crimson Text', serif; line-height: 150%;">{{ currentExcerpt.text }}</p>
-              <p class="text-12 text-#4c4c48 font-600 italic" style="font-family: 'Crimson Text', serif; line-height: 150%;">— {{ currentExcerpt.author }}</p>
+              <p class="text-16 text-#4c4c48 font-600" style="font-family: 'Crimson Text', serif; line-height: 150%;">{{ currentExcerpt.text }}</p>
+              <p class="text-16 text-#4c4c48 font-600 italic" style="font-family: 'Crimson Text', serif; line-height: 150%;">— {{ currentExcerpt.author }}</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-16 justify-center">
               <button
