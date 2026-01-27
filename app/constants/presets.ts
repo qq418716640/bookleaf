@@ -2,15 +2,15 @@ import type { PresetConfig, AspectRatio, CanvasDimensions } from '~/types'
 
 export const FONT_PATHS = {
   'Crimson Text': {
-    '600': '/fonts/CrimsonText-SemiBold.ttf',
-    '600italic': '/fonts/CrimsonText-SemiBoldItalic.ttf'
+    '600': 'fonts/CrimsonText-SemiBold.ttf',
+    '600italic': 'fonts/CrimsonText-SemiBoldItalic.ttf'
   },
   'Averia Serif Libre': {
-    '700': '/fonts/AveriaSerifLibre-Bold.ttf',
-    '700italic': '/fonts/AveriaSerifLibre-BoldItalic.ttf'
+    '700': 'fonts/AveriaSerifLibre-Bold.ttf',
+    '700italic': 'fonts/AveriaSerifLibre-BoldItalic.ttf'
   },
   'New Athena Unicode': {
-    '400': '/fonts/EBGaramond-Regular.ttf'
+    '400': 'fonts/EBGaramond-Regular.ttf'
   }
 }
 
@@ -18,9 +18,9 @@ export const PRESETS: PresetConfig[] = [
   {
     id: 'editorial',
     name: 'Editorial',
-    thumbnailUrl: '/images/preview/Editorial-1350.jpg',
-    backgroundUrl: '/images/底纹/Editorial-bg-1350.jpg',
-    filterUrl: '/images/滤镜/Editorial-filter-Multiply-1350.jpg',
+    thumbnailUrl: 'images/preview/Editorial-1350.jpg',
+    backgroundUrl: 'images/底纹/Editorial-bg-1350.jpg',
+    filterUrl: 'images/滤镜/Editorial-filter-Multiply-1350.jpg',
     defaultFilterOpacity: 50,
     quoteStyle: {
       fontFamily: 'Crimson Text',
@@ -44,9 +44,9 @@ export const PRESETS: PresetConfig[] = [
   {
     id: 'classic',
     name: 'Classic',
-    thumbnailUrl: '/images/preview/Classic-1350.jpg',
-    backgroundUrl: '/images/底纹/Classic-bg-1350.jpg',
-    filterUrl: '/images/滤镜/Classic-filter-Multiply-1350.jpg',
+    thumbnailUrl: 'images/preview/Classic-1350.jpg',
+    backgroundUrl: 'images/底纹/Classic-bg-1350.jpg',
+    filterUrl: 'images/滤镜/Classic-filter-Multiply-1350.jpg',
     defaultFilterOpacity: 50,
     quoteStyle: {
       fontFamily: 'Averia Serif Libre',
@@ -70,9 +70,9 @@ export const PRESETS: PresetConfig[] = [
   {
     id: 'modern',
     name: 'Modern',
-    thumbnailUrl: '/images/preview/Modern-1350.jpg',
-    backgroundUrl: '/images/底纹/Modern-bg-1350.jpg',
-    filterUrl: '/images/滤镜/Modern-filter-Multiply-1350.jpg',
+    thumbnailUrl: 'images/preview/Modern-1350.jpg',
+    backgroundUrl: 'images/底纹/Modern-bg-1350.jpg',
+    filterUrl: 'images/滤镜/Modern-filter-Multiply-1350.jpg',
     defaultFilterOpacity: 50,
     quoteStyle: {
       fontFamily: 'New Athena Unicode',

@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  // Static site generation
+  ssr: true,
+  nitro: {
+    preset: 'static',
+  },
+
   // Use app/ as source directory
   srcDir: 'app/',
 
@@ -11,22 +17,19 @@ export default defineNuxtConfig({
     port: 4000,
   },
 
-  // Umami analytics configuration
-  app: {
-    baseURL: '/bookleaf/',
-    head: {
-      script: [
-        {
-          src: 'https://umami.example.com/script.js',
-          async: true,
-          defer: true,
-          'data-website-id': 'bookleaf-website-id',
-          'data-domains': 'bookleaf.example.com',
-          'data-auto-track': 'true',
-          'data-respect-dnt': 'true',
-        },
-      ],
+  // Runtime config for environment variables
+  runtimeConfig: {
+    public: {
+      umamiHost: '',
+      umamiId: '',
     },
+  },
+
+  // App configuration - baseURL controlled by NUXT_APP_BASE_URL env var
+  // Default: '/' for local dev and Vercel
+  // Production (Spring Boot): '/bookleaf/'
+  app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
   },
 
   modules: ['@nuxt/eslint', '@nuxtjs/seo', '@unocss/nuxt', '@nuxt/image', '@pinia/nuxt'],

@@ -5,10 +5,20 @@ import type { PresetConfig, LoadedImage } from '~/types'
 // Singleton instance
 const imageLoader = new ImageLoader()
 
+// Initialize base URL (will be set when composable is first used in browser)
+let baseUrlInitialized = false
+
 /**
  * Vue composable for image loading with reactive state
  */
 export function useImages() {
+  // Initialize base URL on first use
+  if (!baseUrlInitialized && import.meta.client) {
+    const config = useRuntimeConfig()
+    imageLoader.setBaseUrl(config.app.baseURL || '/')
+    baseUrlInitialized = true
+  }
+
   const isLoading = ref(false)
   const error = ref<string | null>(null)
   const loadedUrls = ref<Set<string>>(new Set())

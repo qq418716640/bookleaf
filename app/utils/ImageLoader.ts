@@ -7,11 +7,32 @@ import type { LoadedImage, PresetConfig } from '~/types'
 export class ImageLoader {
   private loadedImages: Map<string, HTMLImageElement> = new Map()
   private loadingPromises: Map<string, Promise<HTMLImageElement>> = new Map()
+  private baseUrl: string = '/'
+
+  /**
+   * Set the base URL for loading images
+   */
+  setBaseUrl(url: string) {
+    this.baseUrl = url.endsWith('/') ? url : url + '/'
+  }
+
+  /**
+   * Resolve URL with base URL
+   */
+  private resolveUrl(url: string): string {
+    // If URL is already absolute, return as is
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
+      return url
+    }
+    return this.baseUrl + url
+  }
 
   /**
    * Load a single image with CORS support
    */
   async loadImage(url: string): Promise<HTMLImageElement> {
+    const resolvedUrl = this.resolveUrl(url)
+
     // Return cached image if available
     if (this.loadedImages.has(url)) {
       return this.loadedImages.get(url)!
@@ -23,7 +44,7 @@ export class ImageLoader {
     }
 
     // Create loading promise
-    const loadingPromise = this.loadImageInternal(url)
+    const loadingPromise = this.loadImageInternal(resolvedUrl)
     this.loadingPromises.set(url, loadingPromise)
 
     try {

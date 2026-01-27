@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { PresetConfig } from '~/types'
 
+// Get base URL for static assets
+const config = useRuntimeConfig()
+const baseUrl = config.app.baseURL || '/'
+
 interface Props {
   quoteText: string
   authorText: string
@@ -114,8 +118,8 @@ const handleSelectPreset = (preset: PresetConfig) => {
         >
           <!-- Preview Image -->
           <div class="w-full aspect-[4/3] bg-gray-100 rounded-4 overflow-hidden">
-            <img 
-              :src="`/images/preview/${preset.id}-1350.jpg`" 
+            <img
+              :src="`${baseUrl}images/preview/${preset.id}-1350.jpg`"
               :alt="`${preset.name} style preview`"
               class="w-full h-full object-cover"
             />

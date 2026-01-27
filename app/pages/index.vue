@@ -3,6 +3,10 @@ import { onMounted, ref, onMounted as vueOnMounted } from 'vue'
 import { usePosterApp } from '~/composables/usePosterApp'
 import useAnalytics, { getDeviceType } from '~/composables/useAnalytics'
 
+// Get base URL for static assets
+const config = useRuntimeConfig()
+const baseUrl = config.app.baseURL || '/'
+
 // SEO Meta Tags - Bookleaf
 useSeoMeta({
   title: 'Bookleaf — For the lines you’ll remember',
@@ -86,7 +90,7 @@ const isLoadingExcerpts = ref(false)
 const loadExcerpts = async () => {
   try {
     isLoadingExcerpts.value = true
-    const response = await fetch('/content/randomExcerpts.v1.json')
+    const response = await fetch(`${baseUrl}content/randomExcerpts.v1.json`)
     const data = await response.json()
     excerpts.value = data
     selectRandomExcerpt()
@@ -263,7 +267,7 @@ onMounted(() => {
         <div class="flex items-center justify-between">
           <div class="flex items-center shrink-0 gap-24">
             <img
-              src="/images/logo/Bookleaf-black.svg"
+              :src="`${baseUrl}images/logo/Bookleaf-black.svg`"
               alt="Bookleaf Logo"
               class="h-20 vertical-align-middle"
             />
@@ -341,7 +345,7 @@ onMounted(() => {
           <!-- Hero Section with background image -->
           <div class="relative">
             <!-- Background image with opacity -->
-            <div class="absolute inset-0 bg-no-repeat bg-cover opacity-70" :style="{'background-image': 'url(/images/bg.jpg)'}"></div>
+            <div class="absolute inset-0 bg-no-repeat bg-cover opacity-70" :style="{'background-image': `url(${baseUrl}images/bg.jpg)`}"></div>
             <div class="relative z-10 max-w-7xl mx-auto flex items-center justify-between gap-160 lt-md:p-20">
             <div class="flex flex-col">
               <h1
@@ -377,12 +381,12 @@ onMounted(() => {
             </div>
             <div class="relative flex lt-md:hidden">
               <img
-                src="/images/book.jpg"
+                :src="`${baseUrl}images/book.jpg`"
                 alt="Bookleaf Hero"
                 class="w-full h-auto"
               />
               <img
-                src="/images/preview/Editorial-1350.jpg"
+                :src="`${baseUrl}images/preview/Editorial-1350.jpg`"
                 alt="Bookleaf Hero"
                 class="absolute -left-30% top-50% -translate-y-50% w-80%"
               />
@@ -587,7 +591,7 @@ onMounted(() => {
     <footer class="flex-c bg-primary-700 py-40">
       <div class="max-w-500 mx-auto flex items-center justify-center flex-col gap-20 color-#fff text-14 leading-18" lt-md="px-20 gap-12">
         <img
-          src="/images/logo/Bookleaf-white.svg"
+          :src="`${baseUrl}images/logo/Bookleaf-white.svg`"
           alt="Bookleaf Logo"
           class="h-20 vertical-align-middle"
         />
