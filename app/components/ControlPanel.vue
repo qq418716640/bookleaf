@@ -20,7 +20,7 @@ interface Emits {
   (e: 'update:quoteAlignment', value: TextAlignment): void
   (e: 'update:authorAlignment', value: TextAlignment): void
   (e: 'update:aspectRatio', value: AspectRatio): void
-  (e: 'selectPreset', presetId: string): void
+  (e: 'selectPreset', preset: PresetConfig): void
 }
 
 const props = defineProps<Props>()
@@ -61,7 +61,7 @@ const handleAspectRatioChange = (value: AspectRatio) => {
 }
 
 const handleSelectPreset = (preset: PresetConfig) => {
-  emit('selectPreset', preset.id)
+  emit('selectPreset', preset)
   analytics.trackPresetSelected(preset.id)
 }
 </script>
