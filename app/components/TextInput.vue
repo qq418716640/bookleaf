@@ -119,7 +119,7 @@ const handleSelectPreset = (preset: PresetConfig) => {
           <!-- Preview Image -->
           <div class="w-full aspect-[4/3] bg-gray-100 rounded-4 overflow-hidden">
             <img
-              :src="`${baseUrl}images/preview/${preset.id}-1350.jpg`"
+              :src="`${baseUrl}images/preview/${preset.name}-1350.jpg`"
               :alt="`${preset.name} style preview`"
               class="w-full h-full object-cover"
             />
