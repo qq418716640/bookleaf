@@ -516,7 +516,7 @@ onMounted(() => {
                   </div>
                   <span class="text-sm text-neutral-500 bg-white/60 px-12 py-4 rounded-full lt-md:hidden">Real-time</span>
                 </div>
-                <div class="w-full max-w-[800px] mx-auto p-0! bg-gradient-to-br from-primary-50 to-gold-50 rounded-2xl">
+                <div class="w-full max-w-[600px] mx-auto p-0! bg-gradient-to-br from-primary-50 to-gold-50 rounded-2xl">
                   <CanvasPreview
                     :preset="currentPreset"
                     :quote-text="quoteText"

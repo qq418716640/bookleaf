@@ -106,7 +106,7 @@ export const QUOTE_AUTHOR_SPACING_LINES = 1
 export const DEFAULTS = {
   PRESET_ID: 'editorial',
   FILTER_INTENSITY: 50,
-  ASPECT_RATIO: '1:1' as AspectRatio,
+  ASPECT_RATIO: '4:5' as AspectRatio,
   QUOTE_TEXT: 'Some lines stay with us longer than entire stories.',
   AUTHOR_TEXT: '— anonymous'
 }

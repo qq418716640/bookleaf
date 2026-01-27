@@ -24,10 +24,10 @@ const props = withDefaults(defineProps<Props>(), {
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const renderer = ref<PosterRenderer | null>(null)
 
-// Calculate preview dimensions (max 800px width, maintain aspect ratio)
+// Calculate preview dimensions (max 600px width, maintain aspect ratio)
 const previewDimensions = computed(() => {
   const dimensions = CANVAS_DIMENSIONS[props.aspectRatio]
-  const maxWidth = 800
+  const maxWidth = 600
   const scale = Math.min(1, maxWidth / dimensions.width)
   return {
     width: dimensions.width * scale,
@@ -184,7 +184,7 @@ defineExpose({
 <style scoped>
 .canvas-preview-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 

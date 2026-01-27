@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     public: {
       umamiHost: '',
       umamiId: '',
+      gtmId: '',
     },
   },
 

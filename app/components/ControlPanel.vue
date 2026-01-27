@@ -97,7 +97,7 @@ const handleAspectRatioChange = (value: AspectRatio) => {
       <select
         id="quote-alignment"
         :value="quoteAlignment"
-        class="w-full h-40 px-6 py-4 border border-[#484c44] rounded-[10px] outline outline-1 outline-color-[#484c44] focus:outline-2 focus:outline-color-[#484c44] focus:ring-0 transition-all disabled:bg-neutral-100 disabled:cursor-not-allowed"
+        class="w-full h-40 px-12 py-4 border border-[#484c44] rounded-[10px] outline outline-1 outline-color-[#484c44] focus:outline-2 focus:outline-color-[#484c44] focus:ring-0 transition-all disabled:bg-neutral-100 disabled:cursor-not-allowed"
         @change="handleQuoteAlignmentChange"
       >
         <option
@@ -121,7 +121,7 @@ const handleAspectRatioChange = (value: AspectRatio) => {
       <select
         id="author-alignment"
         :value="authorAlignment"
-        class="w-full h-40 px-6 py-4 border border-[#484c44] rounded-[10px] outline outline-1 outline-color-[#484c44] focus:outline-2 focus:outline-color-[#484c44] focus:ring-0 transition-all disabled:bg-neutral-100 disabled:cursor-not-allowed"
+        class="w-full h-40 px-12 py-4 border border-[#484c44] rounded-[10px] outline outline-1 outline-color-[#484c44] focus:outline-2 focus:outline-color-[#484c44] focus:ring-0 transition-all disabled:bg-neutral-100 disabled:cursor-not-allowed"
         @change="handleAuthorAlignmentChange"
       >
         <option
