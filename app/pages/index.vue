@@ -398,8 +398,8 @@ onMounted(() => {
           <!-- Random Excerpt Demo -->
           <section class="my-40 py-30 px-20 bg-#fffcf6 backdrop-blur-sm rounded-2xl shadow-soft flex items-center justify-between" lt-md="flex-col gap-y-4">
             <div v-if="currentExcerpt" class="flex items-center gap-20" lt-md="flex-col gap-y-0">
-              <p class="text-14 text-#4c4c48 font-600">{{ currentExcerpt.text }}</p>
-              <p class="text-14 text-#4c4c48">— {{ currentExcerpt.author }}</p>
+              <p class="text-14 text-#4c4c48 font-600" style="font-family: 'Crimson Text', serif;">{{ currentExcerpt.text }}</p>
+              <p class="text-14 text-#4c4c48 font-600 italic" style="font-family: 'Crimson Text', serif;">— {{ currentExcerpt.author }}</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-16 justify-center">
               <button
