@@ -417,31 +417,6 @@ onMounted(() => {
             </div>
           </section>
 
-          <!-- How it works -->
-          <section class="" id="how-it-works">
-            <div class="text-center">
-              <h2 class="text-5xl font-bold font-serif text-primary-700 mb-8" lt-md="text-3xl">How it works</h2>
-              <p class="text-neutral-600 mb-32">No design skills required. Just words.</p>
-            </div>
-            <div class="">
-              <!-- Step bar container -->
-              <div class="relative grid grid-cols-3 mb-32 gap-20" lt-md="grid-cols-1">
-                <!-- Steps -->
-                <div 
-                  v-for="step in steps" 
-                  :key="step.id"
-                  class="flex flex-col items-center z-10 gap-20 lt-md:gap-10"
-                >
-                  <div class="w-40 h-40 bg-secondary-500 rounded-full flex-center shadow-soft">
-                    <span class="text-white font-bold text-xl">{{ step.id }}</span>
-                  </div>
-                  <h4 class="text-20 leading-30 m-0 text-center text-#484c44">{{ step.title }}</h4>
-                  <p class="text-16 leading-26 m-0 text-center text-#484c44/80">{{ step.description }}</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <!-- Application Content Area -->
           <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 lt-md:gap-20" id="try">
             <!-- Control Panel (Left Side) -->
@@ -532,6 +507,31 @@ onMounted(() => {
               </div>
             </section>
           </div>
+
+          <!-- How it works -->
+          <section class="" id="how-it-works">
+            <div class="text-center">
+              <h2 class="text-5xl font-bold font-serif text-primary-700 mb-8" lt-md="text-3xl">How it works</h2>
+              <p class="text-neutral-600 mb-32">No design skills required. Just words.</p>
+            </div>
+            <div class="">
+              <!-- Step bar container -->
+              <div class="relative grid grid-cols-3 mb-32 gap-20" lt-md="grid-cols-1">
+                <!-- Steps -->
+                <div
+                  v-for="step in steps"
+                  :key="step.id"
+                  class="flex flex-col items-center z-10 gap-20 lt-md:gap-10"
+                >
+                  <div class="w-40 h-40 bg-secondary-500 rounded-full flex-center shadow-soft">
+                    <span class="text-white font-bold text-xl">{{ step.id }}</span>
+                  </div>
+                  <h4 class="text-20 leading-30 m-0 text-center text-#484c44">{{ step.title }}</h4>
+                  <p class="text-16 leading-26 m-0 text-center text-#484c44/80">{{ step.description }}</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <!-- Inspirations -->
           <section class="" id="examples">
