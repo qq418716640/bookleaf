@@ -402,19 +402,18 @@ onMounted(() => {
               <p class="text-14 text-#4c4c48">— {{ currentExcerpt.author }}</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-16 justify-center">
-              <button 
-                @click="selectRandomExcerpt" 
+              <button
+                @click="keepThisExcerpt"
                 class="btn-primary border-none! cursor-pointer"
-              >
-                another line
-              </button>
-              <button 
-                @click="keepThisExcerpt" 
-                class="border-none! cursor-pointer hover:color-#849975!"
               >
                 keep this line
               </button>
-              
+              <button
+                @click="selectRandomExcerpt"
+                class="btn-secondary border-none! cursor-pointer"
+              >
+                another line
+              </button>
             </div>
           </section>
 
