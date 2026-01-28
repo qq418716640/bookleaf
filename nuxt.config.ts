@@ -31,6 +31,32 @@ export default defineNuxtConfig({
   // Production (Spring Boot): '/bookleaf/'
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || '/',
+    head: {
+      link: [
+        // Preload critical fonts
+        {
+          rel: 'preload',
+          href: '/fonts/CrimsonText-SemiBold.ttf',
+          as: 'font',
+          type: 'font/ttf',
+          crossorigin: 'anonymous',
+        },
+        // Preload hero image (LCP element)
+        {
+          rel: 'preload',
+          href: '/images/book.jpg',
+          as: 'image',
+          type: 'image/jpeg',
+        },
+        // Preload background image
+        {
+          rel: 'preload',
+          href: '/images/bg.jpg',
+          as: 'image',
+          type: 'image/jpeg',
+        },
+      ],
+    },
   },
 
   modules: ['@nuxt/eslint', '@nuxtjs/seo', '@unocss/nuxt', '@nuxt/image', '@pinia/nuxt'],

@@ -270,6 +270,8 @@ onMounted(() => {
               :src="`${baseUrl}images/logo/Bookleaf-black.svg`"
               alt="Bookleaf Logo"
               class="h-20 vertical-align-middle"
+              width="100"
+              height="20"
             />
 
             <div class="text-14 leading-20 color-#484c44 lt-md:hidden">
@@ -384,16 +386,17 @@ onMounted(() => {
                 alt="Bookleaf Hero"
                 class="w-full h-auto"
                 loading="eager"
-                width="400"
-                height="500"
+                width="448"
+                height="672"
+                fetchpriority="high"
               />
               <img
                 :src="`${baseUrl}images/preview/Editorial-1350.jpg`"
                 alt="Bookleaf Preview"
                 class="absolute -left-30% top-50% -translate-y-50% w-80%"
                 loading="lazy"
-                width="320"
-                height="400"
+                width="324"
+                height="405"
               />
             </div>
           </div>
@@ -598,6 +601,9 @@ onMounted(() => {
           :src="`${baseUrl}images/logo/Bookleaf-white.svg`"
           alt="Bookleaf Logo"
           class="h-20 vertical-align-middle"
+          width="100"
+          height="20"
+          loading="lazy"
         />
         <div>Vertical Movie Screenshot Stitcher</div>
         <div class="text-center">LineStack helps you stitch movie and TV show screenshots into vertical story images with preserved subtitles — free, private, and built for cinematic storytelling.</div>
