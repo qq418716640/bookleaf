@@ -505,7 +505,7 @@ onMounted(() => {
           </section>
 
           <!-- Application Content Area -->
-          <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 lt-md:gap-20" id="try">
+          <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-20" id="try">
             <!-- Control Panel (Left Side) -->
             <aside
               aria-label="Design controls"
