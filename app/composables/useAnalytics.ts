@@ -9,19 +9,24 @@ interface AnalyticsEvent {
 
 // 检测umami是否可用
 const isUmamiAvailable = (): boolean => {
-  return typeof window !== 'undefined' && 'umami' in window
+  return typeof window !== 'undefined' && 'umami' in window && typeof (window as any).umami?.track === 'function'
 }
 
 // 发送事件
 const trackEvent = (eventName: string, params?: Record<string, any>): void => {
-  if (isUmamiAvailable()) {
-    // 使用umami的track方法发送事件
-    ;(window as any).umami(eventName, params)
-  } else {
-    // 开发环境下的日志
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Analytics Event:', eventName, params)
+  try {
+    if (isUmamiAvailable()) {
+      // 使用umami的track方法发送事件
+      ;(window as any).umami.track(eventName, params)
+    } else {
+      // 开发环境下的日志
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Analytics Event:', eventName, params)
+      }
     }
+  } catch (error) {
+    // 静默处理错误，不影响用户体验
+    console.warn('Analytics tracking error:', error)
   }
 }
 
@@ -172,5 +177,6 @@ export default function useAnalytics() {
     // 工具函数
     getDeviceType,
     isUmamiAvailable,
+    trackEvent,
   }
 }
