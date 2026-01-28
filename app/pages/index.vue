@@ -277,6 +277,14 @@ const aiTools = [
 // FAQ open state
 const faqOpen = ref(0)
 
+// Navigate to random AI tool
+const goToRandomTool = () => {
+  const randomIndex = Math.floor(Math.random() * aiTools.length)
+  const tool = aiTools[randomIndex]
+  analytics.trackEvent('click_random_tool', { tool_id: tool.id, tool_name: tool.name })
+  window.open(tool.url, '_blank', 'noopener,noreferrer')
+}
+
 // Handle export
 const handleExport = async () => {
   // Track export click
@@ -357,7 +365,7 @@ onMounted(() => {
               Try It Free
             </a>
             <a href="#try" class="text-14 color-#484c44 hover:color-#849975! lt-md:hidden" @click="() => { analytics.trackClickExamples('default'); selectRandomExcerpt(); keepThisExcerpt(); }">Examples</a>
-            <a href="#try" class="text-14 color-#484c44 hover:color-#849975! lt-md:hidden" @click="() => { selectRandomExcerpt(); keepThisExcerpt(); }">More Tools</a>
+            <a href="#examples" class="text-14 color-#484c44 hover:color-#849975! lt-md:hidden">More Tools</a>
           </div>
         </div>
       </div>
@@ -417,7 +425,7 @@ onMounted(() => {
             <!-- Background image with opacity -->
             <div class="absolute inset-0 bg-no-repeat bg-cover opacity-20" :style="{'background-image': `url(${baseUrl}images/bg.jpg)`}"></div>
             <div class="relative z-10 max-w-7xl mx-auto flex items-center justify-between gap-160 lt-md:p-20">
-            <div class="flex flex-col">
+            <div class="flex flex-col" lt-md="items-center text-center">
               <h1
                 id="app-title"
                 class="text-64 font-serif text-#484c44 lt-md:text-32"
@@ -661,20 +669,17 @@ onMounted(() => {
               </a>
             </div>
 
-            <!-- View All Button -->
+            <!-- Try Random Tool Button -->
             <div class="text-center mt-32">
-              <a
-                href="https://www.ailogocreator.io/ai-tools"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-secondary inline-flex items-center gap-8"
-                @click="analytics.trackEvent('click_view_all_tools')"
+              <button
+                class="btn-secondary inline-flex items-center gap-8 cursor-pointer"
+                @click="goToRandomTool"
               >
-                View All AI Tools
+                Try a Random Tool
                 <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </a>
+              </button>
             </div>
           </section>
 
