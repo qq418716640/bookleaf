@@ -462,20 +462,19 @@ onMounted(() => {
               </a>
             </div>
             </div>
-            <div class="relative flex lt-md:hidden">
+            <div class="relative flex lt-md:hidden h-full">
               <img
                 :src="`${baseUrl}images/book.jpg`"
                 alt="Bookleaf Hero"
-                class="w-full h-auto"
-                style="aspect-ratio: 896 / 1344;"
+                class="h-full w-auto object-contain"
                 loading="eager"
                 fetchpriority="high"
               />
               <img
                 :src="`${baseUrl}images/preview/Editorial-1350.jpg`"
                 alt="Bookleaf Preview"
-                class="absolute -left-30% top-50% -translate-y-50% w-80%"
-                style="box-shadow: -2px 4px 4px rgba(94, 85, 77, 0.25); aspect-ratio: 1080 / 1350;"
+                class="absolute -left-30% top-50% -translate-y-50% h-80%"
+                style="box-shadow: -2px 4px 4px rgba(94, 85, 77, 0.25);"
                 loading="lazy"
               />
             </div>
