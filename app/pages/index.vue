@@ -421,7 +421,7 @@ onMounted(() => {
       >
         <div class="flex flex-col">
           <!-- Hero Section with background image -->
-          <div class="relative h-563" lt-md="h-auto">
+          <div class="relative h-563" lt-md="h-auto py-40">
             <!-- Background image with opacity -->
             <div class="absolute inset-0 bg-no-repeat bg-cover opacity-20" :style="{'background-image': `url(${baseUrl}images/bg.jpg)`}"></div>
             <div class="relative z-10 h-full max-w-7xl mx-auto flex items-center justify-between gap-160 lt-md:p-20">
