@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     public: {
       umamiHost: '',
       umamiId: '',
-      gtmId: '',
+      gtmId: '', // GTM ID for production (TM-WMJSMTWF)
     },
   },
 
@@ -77,6 +77,7 @@ export default defineNuxtConfig({
 
   robots: {
     enabled: true,
+    robotsTxt: false, // Disable robots.txt generation for subpath deployment
   },
 
   image: {

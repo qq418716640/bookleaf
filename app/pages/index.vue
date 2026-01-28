@@ -9,18 +9,18 @@ const baseUrl = config.app.baseURL || '/'
 
 // SEO Meta Tags - Bookleaf
 useSeoMeta({
-  title: 'Bookleaf — For the lines you’ll remember',
+  title: 'Bookleaf — For the lines you'll remember',
   description:
     'A free online tool to turn book excerpts and words into clean, editorial-style visuals. No signup required. Export JPG instantly. Ideal for quotes, poems, and memorable lines.',
   keywords:
     'book quotes, excerpts, poster generator, free design tool, quote maker, JPG export',
-  ogTitle: 'Bookleaf — For the lines you’ll remember',
+  ogTitle: 'Bookleaf — For the lines you'll remember',
   ogDescription:
     'A free online tool to turn book excerpts and words into clean, editorial-style visuals. No signup required. Export JPG instantly. Ideal for quotes, poems, and memorable lines.',
   ogImage: '/og-image.png',
   ogType: 'website',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Bookleaf — For the lines you’ll remember',
+  twitterTitle: 'Bookleaf — For the lines you'll remember',
   twitterDescription:
     'A free online tool to turn book excerpts and words into clean, editorial-style visuals. No signup required. Export JPG instantly. Ideal for quotes, poems, and memorable lines.',
   twitterImage: '/og-image.png',
@@ -115,11 +115,11 @@ const keepThisExcerpt = () => {
   if (currentExcerpt.value) {
     // Record excerpt_id (for analytics)
     console.log('Keeping excerpt:', currentExcerpt.value.id)
-    
+
     // Set quote text
     setQuoteText(currentExcerpt.value.text)
     setAuthorText(`— ${currentExcerpt.value.author}`)
-    
+
     // Switch to Editorial preset
     if (presets.value) {
       const editorialPreset = presets.value.find(p => p.id === 'Editorial')
@@ -130,19 +130,19 @@ const keepThisExcerpt = () => {
     } else {
       console.error('presets.value is undefined')
     }
-    
+
     // Force scroll to try section immediately after UI updates
     console.log('Attempting to scroll to #try element')
-    
+
     // Use requestAnimationFrame to ensure DOM is updated
     requestAnimationFrame(() => {
       const tryElement = document.getElementById('try')
       console.log('Try element found:', !!tryElement)
-      
+
       if (tryElement) {
         console.log('Try element position:', tryElement.getBoundingClientRect())
         console.log('Try element offsetTop:', tryElement.offsetTop)
-        
+
         // Try a more direct approach with immediate scroll
         try {
           // First, scroll immediately to the element
@@ -151,7 +151,7 @@ const keepThisExcerpt = () => {
             behavior: 'instant'
           })
           console.log('Immediate scroll executed')
-          
+
           // Then, if needed, do a small smooth adjustment
           setTimeout(() => {
             tryElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -213,12 +213,12 @@ const faqOpen = ref(0)
 const handleExport = async () => {
   // Track export click
   analytics.trackClickExport(currentPreset.value?.id || 'unknown', aspectRatio.value)
-  
+
   exportButtonRef.value?.setExporting(true)
   const success = await exportPoster()
   exportButtonRef.value?.setExporting(false)
   exportButtonRef.value?.setStatus(success ? 'success' : 'error')
-  
+
   // Track export result
   if (success) {
     analytics.trackExportSuccess(1024) // Mock file size
@@ -231,13 +231,13 @@ const handleExport = async () => {
 onMounted(() => {
   initialize()
   loadExcerpts()
-  
+
   // Track page view
   analytics.trackPageView('home')
-  
+
   // Setup scroll tracking
   analytics.setupScrollTracking('home')
-  
+
   // Track app visible when ready
   if (isReady.value) {
     analytics.trackAppVisible(getDeviceType())
@@ -271,16 +271,16 @@ onMounted(() => {
               alt="Bookleaf Logo"
               class="h-20 vertical-align-middle"
             />
-            
+
             <div class="text-14 leading-20 color-#484c44 lt-md:hidden">
               For the lines you'll remember
             </div>
           </div>
-          
+
           <!-- Right: Buttons -->
           <div class="flex items-center gap-20">
-            <a 
-              href="#examples" 
+            <a
+              href="#examples"
               class="btn-secondary py-6! px-12! text-14!"
               @click="analytics.trackClickExamples('default')"
             >
@@ -360,16 +360,16 @@ onMounted(() => {
                 A quiet collection of words worth remembering — turn excerpts, mottos, and lines from books into clean, editorial-style visuals. Free to use. No signup required. Export as JPG.
               </p>
               <div class="flex gap-20 mt-20" lt-md="w-100% items-center gap-10 justify-center">
-              <a 
-                href="#try" 
+              <a
+                href="#try"
                 class="btn-secondary"
                 lt-md="py-10! px-14! text-14!"
                 @click="analytics.trackClickTryBookleaf('default')"
               >
                 Try Bookleaf
               </a>
-              <a 
-                href="#try" 
+              <a
+                href="#try"
                 class="btn-secondary bg-#fff text-#484c44! hover:bg-#fff! hover:opacity-70"
                 lt-md="py-10! px-14! text-14!"
                 @click="() => { analytics.trackClickExamples('default'); selectRandomExcerpt(); keepThisExcerpt(); }"
@@ -383,11 +383,17 @@ onMounted(() => {
                 :src="`${baseUrl}images/book.jpg`"
                 alt="Bookleaf Hero"
                 class="w-full h-auto"
+                loading="eager"
+                width="400"
+                height="500"
               />
               <img
                 :src="`${baseUrl}images/preview/Editorial-1350.jpg`"
-                alt="Bookleaf Hero"
+                alt="Bookleaf Preview"
                 class="absolute -left-30% top-50% -translate-y-50% w-80%"
+                loading="lazy"
+                width="320"
+                height="400"
               />
             </div>
           </div>
@@ -525,8 +531,8 @@ onMounted(() => {
                   <div class="w-40 h-40 bg-secondary-500 rounded-full flex-center shadow-soft">
                     <span class="text-white font-bold text-xl">{{ step.id }}</span>
                   </div>
-                  <h4 class="text-20 leading-30 m-0 text-center text-#484c44">{{ step.title }}</h4>
-                  <p class="text-16 leading-26 m-0 text-center text-#484c44/80">{{ step.description }}</p>
+                  <h3 class="text-20 leading-30 m-0 text-center text-#484c44">{{ step.title }}</h3>
+                  <p class="text-16 leading-26 m-0 text-center text-#5a5a5a">{{ step.description }}</p>
                 </div>
               </div>
             </div>
@@ -551,27 +557,27 @@ onMounted(() => {
             </div>
             <div class="max-w-3xl mx-auto flex flex-col gap-12">
               <!-- FAQ Items -->
-              <div 
-                v-for="item in faqItems" 
+              <div
+                v-for="item in faqItems"
                 :key="item.id"
                 class="bg-#f9fafb rounded-10 cursor-pointer group"
               >
-                <div 
+                <div
                   class="w-full px-16 py-20 flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 rounded-xl"
                   @click="faqOpen = faqOpen === item.id ? 0 : item.id"
                 >
-                  <h4 class="text-14 text-primary-700 font-600 group-hover:color-#849975">{{ item.question }}</h4>
-                  <svg 
+                  <h3 class="text-14 text-primary-700 font-600 group-hover:color-#849975">{{ item.question }}</h3>
+                  <svg
                     class="w-20 h-20 text-neutral-500 transition-all-300"
                     :class="faqOpen === item.id ? 'rotate-180 text-primary-600' : ''"
-                    fill="none" 
-                    stroke="currentColor" 
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
-                <div 
+                <div
                   class="px-16 pb-20 pt-0 border-t rounded-b-10 transition-all-300"
                   :class="[faqOpen === item.id ? 'block' : 'hidden']"
                 >

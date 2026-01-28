@@ -1,0 +1,6 @@
+# robots.txt for Bookleaf
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bookleaf.vercel.app/sitemap.xml
