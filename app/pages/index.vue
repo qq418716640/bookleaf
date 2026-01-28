@@ -471,13 +471,6 @@ onMounted(() => {
                   @select-preset="selectPreset"
                 />
               </div>
-
-              <!-- Export Button -->
-              <ExportButton
-                ref="exportButtonRef"
-                :disabled="!canExport"
-                @export="handleExport"
-              />
             </aside>
 
             <!-- Canvas Preview (Right Side) -->
@@ -510,6 +503,15 @@ onMounted(() => {
                     :background-image="backgroundImage"
                     :filter-image="filterImage"
                     :is-loading="isExporting"
+                  />
+                </div>
+
+                <!-- Export Button -->
+                <div class="w-full max-w-[600px] mx-auto mt-24">
+                  <ExportButton
+                    ref="exportButtonRef"
+                    :disabled="!canExport"
+                    @export="handleExport"
                   />
                 </div>
               </div>
