@@ -6,7 +6,7 @@
 
 - **开发环境**: 本地开发,baseURL 为 `/`
 - **预览环境**: Vercel 部署,baseURL 为 `/`
-- **生产环境**: Tina 家 Spring Boot 部署,baseURL 为 `/bookleaf/`
+- **生产环境**: 自有服务器 Spring Boot 部署,baseURL 为 `/bookleaf/`
 
 ## 环境变量配置
 
@@ -46,7 +46,7 @@ NUXT_PUBLIC_UMAMI_ID=96586b14-00ab-43d1-8c31-3212d9f9beee
 # Google Tag Manager (生产环境)
 NUXT_PUBLIC_GTM_ID=TM-WMJSMTWF
 
-# Base URL (Tina 家部署)
+# Base URL (自有服务器部署)
 NUXT_APP_BASE_URL=/bookleaf/
 ```
 
@@ -73,7 +73,7 @@ npm run generate
 
 输出目录: `.output/public/`
 
-### 生产环境 (Tina 家 - Spring Boot)
+### 生产环境 (自有服务器 - Spring Boot)
 
 #### 方式一: 使用专用命令 (推荐)
 
