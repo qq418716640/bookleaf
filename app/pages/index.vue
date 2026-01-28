@@ -206,6 +206,74 @@ const steps = [
   }
 ]
 
+// AI Tools data for Inspirations section
+const aiTools = [
+  {
+    id: 'ghibli-ai',
+    name: 'Ghibli AI',
+    description: 'Transform photos into Studio Ghibli anime style',
+    icon: '🎨',
+    url: 'https://www.ailogocreator.io/ai-tools/ghibli-ai',
+    tag: 'Popular'
+  },
+  {
+    id: 'funko-pop',
+    name: 'Funko Pop Generator',
+    description: 'Turn yourself into a cute Funko Pop figure',
+    icon: '🎭',
+    url: 'https://www.ailogocreator.io/ai-tools/funko-pop-generator',
+    tag: 'Fun'
+  },
+  {
+    id: '4k-hd',
+    name: '4K HD Enhance',
+    description: 'Upscale and enhance image quality to 4K',
+    icon: '✨',
+    url: 'https://www.ailogocreator.io/ai-tools/4k-hd',
+    tag: 'Essential'
+  },
+  {
+    id: 'cutout',
+    name: 'AI Cutout',
+    description: 'Remove background with one click',
+    icon: '✂️',
+    url: 'https://www.ailogocreator.io/ai-tools/cutout',
+    tag: 'Essential'
+  },
+  {
+    id: 'line-art',
+    name: 'Line Art',
+    description: 'Convert photos to elegant line drawings',
+    icon: '🖊️',
+    url: 'https://www.ailogocreator.io/ai-tools/line-art',
+    tag: 'Creative'
+  },
+  {
+    id: 'white-background',
+    name: 'White Background',
+    description: 'Perfect white background for product photos',
+    icon: '🏷️',
+    url: 'https://www.ailogocreator.io/ai-tools/white-background',
+    tag: 'E-commerce'
+  },
+  {
+    id: 'remove-people',
+    name: 'Remove People',
+    description: 'Erase unwanted people from your photos',
+    icon: '🚶',
+    url: 'https://www.ailogocreator.io/ai-tools/remove-people-from-photos',
+    tag: 'Useful'
+  },
+  {
+    id: 'watermark-remover',
+    name: 'Watermark Remover',
+    description: 'Clean up watermarks from images',
+    icon: '💧',
+    url: 'https://www.ailogocreator.io/ai-tools/watermark-remover',
+    tag: 'Useful'
+  }
+]
+
 // FAQ open state
 const faqOpen = ref(0)
 
@@ -541,13 +609,65 @@ onMounted(() => {
             </div>
           </section>
 
-          <!-- Inspirations -->
+          <!-- Inspirations - AI Tools -->
           <section class="" id="examples">
-            <div class="text-center">
-              <h2 class="text-5xl font-bold font-serif text-primary-700 mb-8 text-primary-700" lt-md="text-3xl">Inspirations</h2>
-              <p class="text-neutral-600 mb-32">Browse other collections worth remembering.</p>
-              <a href="#try" class="btn-secondary" @click="() => { analytics.trackClickGoPro(); selectRandomExcerpt(); keepThisExcerpt(); }">
-                View AI Tools Inspirations
+            <div class="text-center mb-40">
+              <h2 class="text-5xl font-bold font-serif text-primary-700 mb-8" lt-md="text-3xl">More Creative Tools</h2>
+              <p class="text-neutral-600">Explore our collection of AI-powered image tools</p>
+            </div>
+
+            <!-- AI Tools Grid -->
+            <div class="grid grid-cols-4 gap-20" lt-md="grid-cols-2 gap-12">
+              <a
+                v-for="tool in aiTools"
+                :key="tool.id"
+                :href="tool.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group relative bg-white rounded-16 p-20 border border-#e5e7eb hover:border-primary-300 hover:shadow-lg transition-all-300 cursor-pointer no-underline"
+                @click="analytics.trackEvent('click_ai_tool', { tool_id: tool.id, tool_name: tool.name })"
+              >
+                <!-- Tag -->
+                <span
+                  v-if="tool.tag"
+                  class="absolute top-12 right-12 text-10 px-8 py-2 rounded-full bg-primary-100 text-primary-700 font-500"
+                >
+                  {{ tool.tag }}
+                </span>
+
+                <!-- Icon -->
+                <div class="text-32 mb-12">{{ tool.icon }}</div>
+
+                <!-- Content -->
+                <h3 class="text-16 font-600 text-#484c44 mb-8 group-hover:text-primary-600 transition-colors">
+                  {{ tool.name }}
+                </h3>
+                <p class="text-13 text-#6b7280 leading-relaxed m-0">
+                  {{ tool.description }}
+                </p>
+
+                <!-- Arrow indicator -->
+                <div class="absolute bottom-16 right-16 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg class="w-16 h-16 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center mt-32">
+              <a
+                href="https://www.ailogocreator.io/ai-tools"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary inline-flex items-center gap-8"
+                @click="analytics.trackEvent('click_view_all_tools')"
+              >
+                View All AI Tools
+                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </a>
             </div>
           </section>
