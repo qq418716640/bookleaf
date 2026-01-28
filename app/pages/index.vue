@@ -638,7 +638,7 @@ onMounted(() => {
                 :href="tool.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="group relative bg-white rounded-16 p-20 border border-#e5e7eb hover:border-primary-300 hover:shadow-lg transition-all-300 cursor-pointer no-underline"
+                class="group relative bg-white/60 backdrop-blur-sm rounded-16 p-20 border border-white/40 hover:border-primary-300 hover:shadow-lg transition-all-300 cursor-pointer no-underline"
                 @click="analytics.trackEvent('click_ai_tool', { tool_id: tool.id, tool_name: tool.name })"
               >
                 <!-- Tag -->
@@ -694,7 +694,7 @@ onMounted(() => {
               <div
                 v-for="item in faqItems"
                 :key="item.id"
-                class="bg-#f9fafb rounded-10 cursor-pointer group"
+                class="bg-white/60 backdrop-blur-sm rounded-10 cursor-pointer group border border-white/40"
               >
                 <div
                   class="w-full px-16 py-20 flex justify-between items-center text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 rounded-xl"
