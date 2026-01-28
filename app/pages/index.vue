@@ -9,18 +9,18 @@ const baseUrl = config.app.baseURL || '/'
 
 // SEO Meta Tags - Bookleaf
 useSeoMeta({
-  title: 'Bookleaf — For the lines you'll remember',
+  title: "Bookleaf — For the lines you'll remember",
   description:
     'A free online tool to turn book excerpts and words into clean, editorial-style visuals. No signup required. Export JPG instantly. Ideal for quotes, poems, and memorable lines.',
   keywords:
     'book quotes, excerpts, poster generator, free design tool, quote maker, JPG export',
-  ogTitle: 'Bookleaf — For the lines you'll remember',
+  ogTitle: "Bookleaf — For the lines you'll remember",
   ogDescription:
     'A free online tool to turn book excerpts and words into clean, editorial-style visuals. No signup required. Export JPG instantly. Ideal for quotes, poems, and memorable lines.',
   ogImage: '/og-image.png',
   ogType: 'website',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Bookleaf — For the lines you'll remember',
+  twitterTitle: "Bookleaf — For the lines you'll remember",
   twitterDescription:
     'A free online tool to turn book excerpts and words into clean, editorial-style visuals. No signup required. Export JPG instantly. Ideal for quotes, poems, and memorable lines.',
   twitterImage: '/og-image.png',
