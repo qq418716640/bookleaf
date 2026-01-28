@@ -394,6 +394,7 @@ onMounted(() => {
                 :src="`${baseUrl}images/preview/Editorial-1350.jpg`"
                 alt="Bookleaf Preview"
                 class="absolute -left-30% top-50% -translate-y-50% w-80%"
+                style="box-shadow: -2px 4px 4px rgba(94, 85, 77, 0.25);"
                 loading="lazy"
                 width="324"
                 height="405"
