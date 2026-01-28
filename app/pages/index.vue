@@ -335,7 +335,7 @@ onMounted(() => {
         <div class="flex items-center justify-between">
           <div class="flex items-center shrink-0 gap-24">
             <img
-              :src="`${baseUrl}images/logo/Bookleaf-black.svg`"
+              :src="`${baseUrl}images/logo/Bookleaf-greenblack.svg`"
               alt="Bookleaf Logo"
               class="h-20 vertical-align-middle"
               width="100"
@@ -415,33 +415,39 @@ onMounted(() => {
           <!-- Hero Section with background image -->
           <div class="relative">
             <!-- Background image with opacity -->
-            <div class="absolute inset-0 bg-no-repeat bg-cover opacity-70" :style="{'background-image': `url(${baseUrl}images/bg.jpg)`}"></div>
+            <div class="absolute inset-0 bg-no-repeat bg-cover opacity-20" :style="{'background-image': `url(${baseUrl}images/bg.jpg)`}"></div>
             <div class="relative z-10 max-w-7xl mx-auto flex items-center justify-between gap-160 lt-md:p-20">
             <div class="flex flex-col">
               <h1
                 id="app-title"
-                class="text-80 font-serif text-#484c44 lt-md:text-40"
+                class="text-64 font-serif text-#484c44 lt-md:text-32"
                 style="line-height: 120%;"
               >
                 Bookleaf
               </h1>
-              <h2 class="text-40 font-serif text-#484c44 lt-md:text-24 mt-0" style="line-height: 120%;">For the lines you'll remember.</h2>
+              <h2 class="text-32 font-serif text-#484c44 lt-md:text-20 mt-0" style="line-height: 120%;">For the lines you'll remember.</h2>
               <p class="text-#7c7d7c text-16 mt-24 lt-md:text-14" style="line-height: 170%;">
-                A quiet collection of words worth remembering — turn excerpts, mottos, and lines from books into clean, editorial-style visuals. Free to use. No signup required. Export as JPG.
+                A quiet collection of words worth remembering — turn excerpts, mottos, and lines from books into clean, editorial-style visuals.
               </p>
-              <div class="flex gap-20 mt-20" lt-md="w-100% items-center gap-10 justify-center">
+              <!-- Feature Tags -->
+              <div class="flex gap-12 mt-16 flex-wrap" lt-md="justify-center">
+                <span class="text-12 px-12 py-6 rounded-full bg-#849975/10 text-#849975 font-500">Free to use</span>
+                <span class="text-12 px-12 py-6 rounded-full bg-#849975/10 text-#849975 font-500">No signup required</span>
+                <span class="text-12 px-12 py-6 rounded-full bg-#849975/10 text-#849975 font-500">Export as JPG</span>
+              </div>
+              <div class="flex gap-20 mt-24" lt-md="w-100% items-center gap-10 justify-center">
               <a
                 href="#try"
-                class="btn-secondary"
-                lt-md="py-10! px-14! text-14!"
+                class="btn-secondary h-56 px-32 text-16 flex items-center"
+                lt-md="h-48 px-20 text-14"
                 @click="analytics.trackClickTryBookleaf('default')"
               >
                 Try Bookleaf
               </a>
               <a
                 href="#try"
-                class="btn-secondary bg-#fff text-#484c44! hover:bg-#fff! hover:opacity-70"
-                lt-md="py-10! px-14! text-14!"
+                class="btn-secondary h-56 px-32 text-16 flex items-center bg-#fff text-#484c44! hover:bg-#fff! hover:opacity-70"
+                lt-md="h-48 px-20 text-14"
                 @click="() => { analytics.trackClickExamples('default'); selectRandomExcerpt(); keepThisExcerpt(); }"
               >
                 Examples
@@ -597,13 +603,13 @@ onMounted(() => {
                 <div
                   v-for="step in steps"
                   :key="step.id"
-                  class="flex flex-col items-center z-10 gap-20 lt-md:gap-10"
+                  class="flex flex-col items-center z-10 gap-12 lt-md:gap-8"
                 >
                   <div class="w-40 h-40 bg-secondary-500 rounded-full flex-center shadow-soft">
                     <span class="text-white font-bold text-xl">{{ step.id }}</span>
                   </div>
-                  <h3 class="text-20 leading-30 m-0 text-center text-#484c44">{{ step.title }}</h3>
-                  <p class="text-16 leading-26 m-0 text-center text-#5a5a5a">{{ step.description }}</p>
+                  <h3 class="text-18 leading-24 m-0 text-center text-#484c44">{{ step.title }}</h3>
+                  <p class="text-14 leading-20 m-0 text-center text-#5a5a5a">{{ step.description }}</p>
                 </div>
               </div>
             </div>
