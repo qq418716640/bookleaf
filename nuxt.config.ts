@@ -83,7 +83,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://leaflet.example.com',
+    url: 'https://www.ailogocreator.io/bookleaf/',
     name: 'Leaflet',
     description: 'Make words feel published. Create beautiful text posters with customizable styles, fonts, and layouts. Perfect for quotes, poems, and memorable lines. Easy to use and share.',
     defaultLocale: 'en',
